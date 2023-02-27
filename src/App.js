@@ -41,6 +41,10 @@ const App = () => {
 			setNewQuestion('');
 		}
 	};
+
+	const copytext = (text) => {
+		navigator.clipboard.writeText(text);
+	};
 	return (
 		<div>
 			<div className="header-section">
@@ -84,7 +88,10 @@ const App = () => {
 								<div className="answer-section" key={index}>
 									<p className="question">{value.question}</p>
 									<p className="answer">{value.answer}</p>
-									<div className="copy-icon">
+									<div
+										className="copy-icon"
+										onClick={() => copytext(value.answer)}
+									>
 										<i className="fa-solid fa-copy"></i>
 									</div>
 								</div>
