@@ -1,5 +1,8 @@
 import { Configuration, OpenAIApi } from 'openai';
 
+import FormSection from './components/FormSection';
+import AnswerSection from './components/AnswerSection';
+
 import { useState } from 'react';
 
 const App = () => {
@@ -9,10 +12,9 @@ const App = () => {
 
 	const openai = new OpenAIApi(configuration);
 
-	const [newQuestion, setNewQuestion] = useState('');
 	const [storedValues, setStoredValues] = useState([]);
 
-	const generateResponse = async () => {
+	const generateResponse = async (newQuestion, setNewQuestion) => {
 		let options = {
 			model: 'text-davinci-003',
 			temperature: 0,
@@ -42,9 +44,6 @@ const App = () => {
 		}
 	};
 
-	const copytext = (text) => {
-		navigator.clipboard.writeText(text);
-	};
 	return (
 		<div>
 			<div className="header-section">
@@ -59,47 +58,10 @@ const App = () => {
 					</p>
 				)}
 			</div>
-			<div className="form-section">
-				<textarea
-					rows="5"
-					className="form-control"
-					placeholder="Ask me anything..."
-					value={newQuestion}
-					onChange={(e) => setNewQuestion(e.target.value)}
-				></textarea>
-				<button className="btn" onClick={generateResponse}>
-					Generate Response 🤖
-				</button>
-			</div>
 
-			{storedValues.length > 0 && (
-				<>
-					<hr className="hr-line" />
-					{/* <div className="answer-section">
-						<p className="question">{question}</p>
-						<p className="answer">{answer}</p>
-						<div className="copy-icon">
-							<i className="fa-solid fa-copy"></i>
-						</div>
-					</div> */}
-					<div className="answer-container">
-						{storedValues.map((value, index) => {
-							return (
-								<div className="answer-section" key={index}>
-									<p className="question">{value.question}</p>
-									<p className="answer">{value.answer}</p>
-									<div
-										className="copy-icon"
-										onClick={() => copytext(value.answer)}
-									>
-										<i className="fa-solid fa-copy"></i>
-									</div>
-								</div>
-							);
-						})}
-					</div>
-				</>
-			)}
+			<FormSection generateResponse={generateResponse} />
+
+			{storedValues.length > 0 && <AnswerSection storedValues={storedValues} />}
 		</div>
 	);
 };
