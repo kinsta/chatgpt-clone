@@ -47,21 +47,14 @@ jobs:
         env:
           KINSTA_API_KEY: ${{ secrets.KINSTA_API_KEY }}  # Assuming you have your API key stored as a GitHub secret
         run: |
-          set +e  # Disable error handling temporarily to check the exit code of the curl command
-          response=$(curl -i -X POST \
+          curl -i -X POST \
             https://api.kinsta.com/v2/applications/deployments \
             -H "Authorization: Bearer $KINSTA_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
-              "app_id": "97354c6b-089f4643-bef0-f466ba4e9dbc",
+              "app_id": "97354c6b-089f-4643-bef0-f466ba4e9dbc",
               "branch": "main"
-            }' 2>&1)  # Capture both stdout and stderr
-          exit_code=$?
-          set -e  # Re-enable error handling
+            }'
 
-          if [ $exit_code -ne 0 ]; then
-            echo "$response"  # Output the error response for visibility
-            exit 1  # Exit with an error status code to mark the job as failed
-          fi
 
 # Add more jobs if needed...
