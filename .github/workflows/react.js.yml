@@ -53,7 +53,7 @@ jobs:
             -H "Authorization: Bearer $KINSTA_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
-              "app_id": "97354c6b-089f-4643-bef0-f466ba4e9dbc",
+              "app_id": "97354c6b-089f4643-bef0-f466ba4e9dbc",
               "branch": "main"
             }' 2>&1)  # Capture both stdout and stderr
           exit_code=$?
