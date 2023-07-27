@@ -1,0 +1,59 @@
+name: ChatGPT Clone App CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint  # Assuming your linting script is named "lint"
+
+  test:
+    needs: eslint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run test  # Assuming you have a test script defined for your tests
+
+  deploy:
+    needs: [eslint, test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Kinsta
+        env:
+          KINSTA_API_KEY: ${{ secrets.KINSTA_API_KEY }}  # Assuming you have your API key stored as a GitHub secret
+        run: |
+          curl -i -X POST \
+            https://api.kinsta.com/v2/applications/deployments \
+            -H "Authorization: Bearer $KINSTA_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "app_id": "97354c6b-089f-4643-bef0-f466ba4e9dbc",
+              "branch": "main"
+            }'
+
+# Add more jobs if needed...
