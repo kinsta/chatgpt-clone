@@ -6,7 +6,7 @@ import FormSection from './FormSection';
 describe('FormSection', () => {
     test('renders the textarea and button', () => {
         render(<FormSection />);
-        const textareaElement = screen.getByPlaceholderText('Ask me anything...');
+        const textareaElement = screen.getByPlaceholderText('Ask me anyting...');
         const buttonElement = screen.getByText('Generate Response 🤖');
 
         expect(textareaElement).toBeInTheDocument();
