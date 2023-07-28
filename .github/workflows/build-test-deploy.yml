@@ -61,14 +61,14 @@ jobs:
       - name: Deploy to Kinsta
         env:
           KINSTA_API_KEY: ${{ secrets.KINSTA_API_KEY }}
-          APP_DEPLOYMENT_ID: ${{ secrets.APP_DEPLOYMENT_ID }}
+          APPp_DEPLOYMENT_ID: ${{ secrets.APP_DEPLOYMENT_ID }}
         run: |
           curl -i -X POST \
             https://api.kinsta.com/v2/applications/deployments \
             -H "Authorization: Bearer $KINSTA_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
-              "app_id": "'"$APP_DEPLOYMENT_ID"'",
+              "app_id": "'"$APPp_DEPLOYMENT_ID"'",
               "branch": "main"
             }'
 
