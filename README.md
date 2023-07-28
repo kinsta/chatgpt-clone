@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+![how-to-build-and-deploy-chatgpt-clone-application-with-react-and-openai-api](https://github.com/olawanlejoel/chatgpt-clone/assets/57611810/dd015c17-9065-44d4-aaad-3eb591264c1d)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# How To Build and Deploy a ChatGPT Clone Application With React and OpenAI API
 
-## Available Scripts
+In this tutorial, you will learn how to build a ChatGPT clone application using React and the OpenAI API. If you want to try your hand at a fun and engaging project over the weekend, this is a great opportunity to dive into React and OpenAI.
 
-In the project directory, you can run:
+Read the [full article](https://kinsta.com/blog/chatgpt-clone/).
 
-### `npm start`
+## Installation
+1. Clone or fork the repository.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Kinsta Application Hosting Setup
+### Dependency Management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Kinsta automatically installs dependencies defined in your `package.json` file during the deployment process.
 
-### `npm test`
+### Environment Variables
+When deploying, add the Kinsta API key and your company's ID as environment variables using the following variable name:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+REACT_APP_OPENAI_API_KEY = 'YOUR_API_KEY'
+```
 
-### `npm run build`
+### Port
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Kinsta automatically sets the `PORT` environment variable. You should **not** define it yourself, and you should **not** hard-code it into the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Start Command
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When deploying an application, Kinsta automatically creates a web process based on the `npm start` in the `package.json` as the entry point.
 
-### `npm run eject`
+### Deployment Lifecycle
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Whenever a deployment is initiated (through creating an application or re-deploying due to an incoming commit), the `npm install` and `npm build` commands are run.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## What is Kinsta
+Kinsta is a developer-centric cloud host / PaaS. We’re striving to make it easier for you to share your web projects with your users. Focus on coding and building, and we’ll take care of deployment and provide fast, scalable hosting. + 24/7 expert-only support.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Start your free trial](https://kinsta.com/signup/?product_type=app-db)
+- [Application Hosting](https://kinsta.com/application-hosting)
+- [Database Hosting](https://kinsta.com/database-hosting)
