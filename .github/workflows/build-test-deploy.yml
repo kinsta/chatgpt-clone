@@ -68,7 +68,7 @@ jobs:
             -H "Authorization: Bearer $KINSTA_API_KEY" \
             -H "Content-Type: application/json" \
             -d '{
-              "app_id": "'"$APPp_DEPLOYMENT_ID"'",
+              "app_id": "'"$APP_ID"'",
               "branch": "main"
             }'
 
