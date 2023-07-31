@@ -61,7 +61,7 @@ jobs:
       - name: Deploy to Kinsta
         env:
           KINSTA_API_KEY: ${{ secrets.KINSTA_API_KEY }}
-          APPp_DEPLOYMENT_ID: ${{ secrets.APP_DEPLOYMENT_ID }}
+          APP_ID: ${{ secrets.APP_ID }}
         run: |
           curl -i -X POST \
             https://api.kinsta.com/v2/applications/deployments \
