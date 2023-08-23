@@ -15,7 +15,7 @@ Read the [full article](https://kinsta.com/blog/chatgpt-clone/).
 Kinsta automatically installs dependencies defined in your `package.json` file during the deployment process.
 
 ### Environment Variables
-When deploying, add the Kinsta API key and your company's ID as environment variables using the following variable name:
+When deploying, add the OpenAI API key as an environment variable using the following variable name:
 
 ```
 REACT_APP_OPENAI_API_KEY = 'YOUR_API_KEY'
